@@ -8,6 +8,6 @@
 	}
 
 	.btn-primary {
-		@apply rounded bg-primary-main py-2 px-3.5 font-medium text-neutrals-white hover:bg-primary-dark disabled:cursor-not-allowed disabled:bg-neutrals-100 disabled:text-neutrals-500 w-fit;
+		@apply rounded bg-primary-main py-2 px-3.5 font-medium text-neutrals-white hover:bg-primary-dark disabled:cursor-not-allowed disabled:bg-neutrals-100 disabled:text-neutrals-500 w-fit cursor-pointer;
 	}
 }
