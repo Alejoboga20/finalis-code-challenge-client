@@ -1,4 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+
+const HomePage = lazy(() => import('../forms/pages/HomePage'));
+const NewPage = lazy(() => import('../forms/pages/NewPage'));
+const FormPage = lazy(() => import('../forms/pages/FormPage'));
 
 enum Routes {
 	HOME = '/',
@@ -9,14 +15,14 @@ enum Routes {
 export const router = createBrowserRouter([
 	{
 		path: Routes.HOME,
-		element: <div>Home</div>,
+		element: <HomePage />,
 	},
 	{
 		path: Routes.NEW,
-		element: <div>New</div>,
+		element: <NewPage />,
 	},
 	{
 		path: Routes.FORM,
-		element: <div>Form</div>,
+		element: <FormPage />,
 	},
 ]);
