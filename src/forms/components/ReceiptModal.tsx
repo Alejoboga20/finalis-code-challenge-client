@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Receipt } from '../types/form';
@@ -22,24 +21,20 @@ const ReceiptModal = ({ isOpen, onClose, onAddReceipt }: ReceiptModalProps) => {
 
 	const onSubmit = (data: ReceiptFormData) => {
 		onAddReceipt(data);
-		onClose();
+		handleOnClose();
 	};
 
-	React.useEffect(() => {
-		if (!isOpen) {
-			clearErrors();
-			reset();
-		}
-	}, [isOpen, clearErrors, reset]);
+	const handleOnClose = () => {
+		clearErrors();
+		reset();
+		onClose();
+	};
 
 	if (!isOpen) return null;
 
 	return (
-		<div
-			className='fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full'
-			id='my-modal'
-		>
-			<div className='relative top-20 mx-auto p-5 border w-[90%] md:w-[70%] lg:w-[50%] min-h-[200px] rounded-lg bg-white shadow-lg'>
+		<div className='modal' id='my-modal'>
+			<div className='modal__content'>
 				<div className='mt-3'>
 					<h4 className='text-xl font-semibold text-gray-800 mb-4 text-center'>Add Receipt</h4>
 					<form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-4'>
@@ -104,7 +99,7 @@ const ReceiptModal = ({ isOpen, onClose, onAddReceipt }: ReceiptModalProps) => {
 						<button type='submit' className='btn-primary w-full mt-4'>
 							Add Receipt
 						</button>
-						<button onClick={onClose} type='button' className='btn-secondary w-full mt-4'>
+						<button onClick={handleOnClose} type='button' className='btn-secondary w-full mt-4'>
 							Close
 						</button>
 					</form>
