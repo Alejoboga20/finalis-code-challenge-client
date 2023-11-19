@@ -33,14 +33,14 @@ export const FormDashboard = () => {
 
 	return (
 		<>
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
+			<div className='form__dashboard'>
 				{forms.map((form) => (
 					<FormCard key={form.id} form={form} />
 				))}
 			</div>
 			<div className='flex justify-end lg:justify-start p-4'>
 				<Link className='btn-primary' to={Routes.NEW}>
-					add new client
+					Create New Form
 				</Link>
 			</div>
 		</>
