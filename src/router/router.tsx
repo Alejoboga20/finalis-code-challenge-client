@@ -8,6 +8,7 @@ import { Form } from '../forms/types/form';
 const HomePage = lazy(() => import('../forms/pages/HomePage'));
 const NewPage = lazy(() => import('../forms/pages/NewPage'));
 const FormPage = lazy(() => import('../forms/pages/FormPage'));
+const ErrorPage = lazy(() => import('../forms/pages/ErrorPage'));
 
 export enum Routes {
 	HOME = '/',
@@ -26,14 +27,18 @@ export const router = createBrowserRouter([
 	{
 		path: Routes.HOME,
 		element: <HomePage />,
+		errorElement: <ErrorPage />,
 	},
 	{
 		path: Routes.NEW,
 		element: <NewPage />,
+		errorElement: <ErrorPage />,
 	},
 	{
 		path: `${Routes.FORM}/:id`,
 		element: <FormPage />,
 		loader: getFormDetails,
+		errorElement: <ErrorPage />,
 	},
+	{},
 ]);
