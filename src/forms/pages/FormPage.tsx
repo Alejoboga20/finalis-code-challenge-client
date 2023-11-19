@@ -101,7 +101,7 @@ const FormPage = () => {
 							type='button'
 							className='btn-primary'
 							onClick={() => onSetFormStatus('APPROVED')}
-							disabled={isLoading}
+							disabled={isLoading || formData.formStatus === 'APPROVED'}
 						>
 							Approve Form
 						</button>
@@ -109,7 +109,7 @@ const FormPage = () => {
 							type='button'
 							className='btn-secondary'
 							onClick={() => onSetFormStatus('REJECTED')}
-							disabled={isLoading}
+							disabled={isLoading || formData.formStatus === 'REJECTED'}
 						>
 							Reject Form
 						</button>
