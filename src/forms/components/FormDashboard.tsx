@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import apiClient from '../../common/api';
 import { FormCard } from './FormCard';
 import { NoForms } from './NoForms';
 import { Spinner } from '../../common/components';
 import { Form } from '../types/form';
+import { Routes } from '../../router/router';
 
 export const FormDashboard = () => {
 	const [forms, setForms] = React.useState<Form[]>([]);
@@ -31,13 +33,15 @@ export const FormDashboard = () => {
 
 	return (
 		<>
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
+			<div className='form__dashboard'>
 				{forms.map((form) => (
 					<FormCard key={form.id} form={form} />
 				))}
 			</div>
 			<div className='flex justify-end lg:justify-start p-4'>
-				<button className='btn-primary w-fit'>add new client</button>
+				<Link className='btn-primary' to={Routes.NEW}>
+					Create New Form
+				</Link>
 			</div>
 		</>
 	);

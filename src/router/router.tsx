@@ -6,7 +6,7 @@ const HomePage = lazy(() => import('../forms/pages/HomePage'));
 const NewPage = lazy(() => import('../forms/pages/NewPage'));
 const FormPage = lazy(() => import('../forms/pages/FormPage'));
 
-enum Routes {
+export enum Routes {
 	HOME = '/',
 	NEW = '/new',
 	FORM = '/form/:id',
