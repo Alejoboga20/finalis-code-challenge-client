@@ -30,4 +30,12 @@
 	.modal__content {
 		@apply relative top-20 mx-auto p-5 border w-[90%] md:w-[70%] lg:w-[50%] min-h-[200px] rounded-lg bg-white shadow-lg;
 	}
+
+	.form__label {
+		@apply text-lg font-semibold text-gray-600;
+	}
+
+	.link {
+		@apply cursor-pointer text-primary-main hover:text-primary-dark;
+	}
 }
