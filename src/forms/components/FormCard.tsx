@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import { Form } from '../types/form';
+import { Routes } from '../../router/router';
 
 interface FormCardProps {
 	form: Form;
@@ -6,7 +9,10 @@ interface FormCardProps {
 
 export const FormCard = ({ form }: FormCardProps) => {
 	return (
-		<div className='bg-white shadow-lg rounded-lg overflow-hidden my-4 cursor-pointer hover:shadow-md hover:bg-blue-100 transition duration-300 ease-in-out'>
+		<Link
+			className='bg-white shadow-lg rounded-lg overflow-hidden my-4 cursor-pointer hover:shadow-md hover:bg-blue-100 transition duration-300 ease-in-out'
+			to={`${Routes.FORM}/${form.id}`}
+		>
 			<div className='px-6 py-4'>
 				<h3 className='font-bold text-xl mb-2'>{form.companyName}</h3>
 				<p
@@ -30,6 +36,6 @@ export const FormCard = ({ form }: FormCardProps) => {
 					{form.validFiscalCode ? 'Valid Fiscal Code' : 'Invalid Fiscal Code'}
 				</p>
 			</div>
-		</div>
+		</Link>
 	);
 };
